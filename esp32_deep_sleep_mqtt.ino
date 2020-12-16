@@ -2,10 +2,10 @@
 #include <PubSubClient.h>
 #include "DHT12.h"          // Library for DHT sensors
  
-#define wifi_ssid "Vodafone-6E44"         
-#define wifi_password "69qHrk2nNTaENdEG"     
+#define wifi_ssid "ssid"         
+#define wifi_password "pass"     
  
-#define mqtt_server "192.168.0.226"  // IP or name from MQTT-Server (here:Raspberry Pi)
+#define mqtt_server "ip"  // IP or name from MQTT-Server
  
 #define temperature_topic "esp32/dht/temperature"    // Topic for temperature
 #define humidity_topic "esp32/dht/humidity"          // Topic for humidity
