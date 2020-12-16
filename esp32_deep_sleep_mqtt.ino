@@ -14,8 +14,7 @@
 /* definitions for deepsleep */
 #define uS_TO_S_FACTOR 1000000          // Conversion factor for micro seconds to seconds 
 #define TIME_TO_SLEEP 300               // Time ESP32 will go to sleep for every 5 minutes (in seconds)
-#define TIME_TO_SLEEP_ERROR 3600        // Time to sleep in case of error (1 hour)
- 
+
 bool debug = true;             //Display log message if True
  
 // Create objects
