@@ -5,7 +5,7 @@
 #define wifi_ssid "ssid"         
 #define wifi_password "pass"     
  
-#define mqtt_server "ip"  // IP or name from MQTT-Server
+#define mqtt_server "ip"  // IP or name from MQTT-Server 
  
 #define temperature_topic "esp32/dht/temperature"    // Topic for temperature
 #define humidity_topic "esp32/dht/humidity"          // Topic for humidity
@@ -33,7 +33,7 @@ void setup() {
   }
   dht.begin();
   
-  // Read temperature in Celcius
+  // Read temperature in Celcius (default)
     float t = dht.readTemperature();
   // Read humidity
     float h = dht.readHumidity();
@@ -42,7 +42,7 @@ void setup() {
   // Nothing to send. Warn on MQTT debug_topic and then go to sleep for longer period.
     if ( isnan(t) || isnan(h)) {
       Serial.println("[ERROR] Please check the DHT sensor !");
-      client.publish(debug_topic, "[ERROR] Please check the DHT sensor !", true);       // Publish humidity on broker
+      client.publish(debug_topic, "[ERROR] Please check the DHT sensor !", true);       // Publish error on broker
       esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR);                    //go to sleep
       Serial.println("Setup ESP32 to sleep for every " + String(TIME_TO_SLEEP) + " Seconds");
       Serial.println("Going to sleep now due to ERROR");
@@ -57,12 +57,12 @@ void setup() {
       Serial.println(h);
     } 
     // Publish values to MQTT topics
-    client.publish(temperature_topic, String(t).c_str(), true);   // Publish temperature on broker/temp1
+    client.publish(temperature_topic, String(t).c_str(), true);   // Publish temperature on broker
     if ( debug ) {    
       Serial.println("Temperature sent to MQTT.");
     }
-    delay(100); //some delay is needed for the mqtt server to accept the message
-    client.publish(humidity_topic, String(h).c_str(), true);      // Publish humidity on broker/humid1
+    delay(100); // delay for the mqtt server to accept the message
+    client.publish(humidity_topic, String(h).c_str(), true);      // Publish humidity on broker
     if ( debug ) {
     Serial.println("Humidity sent to MQTT.");
     }   
