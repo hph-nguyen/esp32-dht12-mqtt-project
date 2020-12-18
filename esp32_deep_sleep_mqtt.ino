@@ -57,12 +57,12 @@ void setup() {
       Serial.println(h);
     } 
     // Publish values to MQTT topics
-    client.publish(temperature_topic, String(t).c_str(), true);   // Publish temperature on broker
+    client.publish(temperature_topic, String(t).c_str(), false);   // Publish temperature on broker
     if ( debug ) {    
       Serial.println("Temperature sent to MQTT.");
     }
     delay(100); // delay for the mqtt server to accept the message
-    client.publish(humidity_topic, String(h).c_str(), true);      // Publish humidity on broker
+    client.publish(humidity_topic, String(h).c_str(), false);      // Publish humidity on broker
     if ( debug ) {
     Serial.println("Humidity sent to MQTT.");
     }   
