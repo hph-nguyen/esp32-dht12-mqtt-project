@@ -42,7 +42,7 @@ void setup() {
   // Nothing to send. Warn on MQTT debug_topic and then go to sleep for longer period.
     if ( isnan(t) || isnan(h)) {
       Serial.println("[ERROR] Please check the DHT sensor !");
-      client.publish(debug_topic, "[ERROR] Please check the DHT sensor !", true);       // Publish error on broker
+      client.publish(debug_topic, "[ERROR] Please check the DHT sensor !", false);       // Publish error on broker
       esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR);                    //go to sleep
       Serial.println("Setup ESP32 to sleep for every " + String(TIME_TO_SLEEP) + " Seconds");
       Serial.println("Going to sleep now due to ERROR");
