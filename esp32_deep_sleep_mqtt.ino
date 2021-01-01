@@ -65,6 +65,7 @@ void setup() {
     client.publish(humidity_topic, String(h).c_str(), false);      // Publish humidity on broker
     if ( debug ) {
     Serial.println("Humidity sent to MQTT.");
+    delay(100); // delay for the mqtt server to accept the message before going to sleep
     }   
  
   esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR); //go to sleep
