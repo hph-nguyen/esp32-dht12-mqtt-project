@@ -97,20 +97,20 @@ void setup_wifi() {
   }
 
   Serial.println("");
-  Serial.println("WiFi is OK ");
+  Serial.println("WiFi is connected ");
   Serial.print("=> ESP32 new IP address is: ");
   Serial.print(WiFi.localIP());
   Serial.println("");
 }
 
-//Reconnect to wifi if connection is lost
+//Reconnect to mqtt broker if connection is lost 
 void reconnect() {
   while (!client.connected()) {
     Serial.print("Connecting to MQTT broker ...");
     String clientId = "ESP32Client";
     clientId += String(random(0xffff), HEX);
     if (client.connect(clientId.c_str())) {
-      Serial.println("OK");
+      Serial.println("connected");
     } else {
       Serial.print("[Error] Not connected: ");
       Serial.print(client.state());
