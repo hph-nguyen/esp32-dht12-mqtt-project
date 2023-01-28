@@ -2,8 +2,8 @@
 #include <PubSubClient.h>
 #include "DHT12.h"   // Library for DHT12
 
-#define wifi_ssid "Vodafone-6E44"
-#define wifi_password "69qHrk2nNTaENdEG"
+#define wifi_ssid "wlan-name"
+#define wifi_password "pw"
 // IP or name from MQTT-Server
 #define mqtt_server "192.168.0.226"
 // Topic for temperature,humidity,debugging
